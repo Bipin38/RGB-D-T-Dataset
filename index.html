@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EgoThermal: An Egocentric RGB-D-T Dataset and Benchmark for Physical Awareness in Wearable Assistive Device">
+  <meta name="keywords" content="EgoThermal, RGB-D-T, thermal, egocentric, dataset, benchmark, vision-language models, assistive technology, blind and low vision">
+  <title>EgoThermal: An Egocentric RGB-D-T Dataset and Benchmark</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="static/css/academicons.min.css">
+
+  <style>
+    body { font-family: 'Noto Sans', sans-serif; }
+    .publication-title { font-family: 'Google Sans', sans-serif; }
+    .publication-title .brand { color: #d9480f; }
+    .publication-authors { font-family: 'Google Sans', sans-serif; }
+    .publication-authors a { color: hsl(204, 86%, 53%) !important; }
+    .publication-authors a:hover { text-decoration: underline; }
+    .author-block { display: inline-block; }
+    .publication-venue { color: #555; font-weight: 600; margin-top: .5rem; }
+    .link-block a { margin: 4px 2px; }
+    .link-block a.is-disabled { opacity: .55; pointer-events: none; }
+    .title.is-3 { font-family: 'Google Sans', sans-serif; }
+    .content.has-text-justified p { line-height: 1.7; }
+    .teaser img, .figure img { width: 100%; border-radius: 6px; }
+    .figure-caption { font-size: .95rem; color: #4a4a4a; margin-top: .6rem; text-align: left; }
+    .stat-box { text-align: center; padding: 1.2rem .5rem; border-radius: 8px; background: #fff4ec; }
+    .stat-box .num { font-family: 'Google Sans', sans-serif; font-size: 2rem; font-weight: 700; color: #d9480f; line-height: 1.1; }
+    .stat-box .lbl { font-size: .9rem; color: #555; margin-top: .3rem; }
+    .result-table td, .result-table th { text-align: center !important; vertical-align: middle; }
+    .result-table td:first-child, .result-table th:first-child { text-align: left !important; }
+    .result-table .best { font-weight: 700; color: #d9480f; }
+    pre { background: #f5f5f5; border-radius: 6px; font-size: .85rem; white-space: pre-wrap; }
+    .footer { padding: 2rem 1.5rem 3rem; }
+    .section-alt { background: #fafafa; }
+  </style>
+</head>
+<body>
+
+<!-- ==================== HERO / TITLE ==================== -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <span class="brand">EgoThermal</span>: An Egocentric RGB-D-T Dataset and Benchmark for Physical Awareness in Wearable Assistive Device
+          </h1>
+
+          <div class="is-size-5 publication-authors">
+            <!-- TODO: replace "#" with personal homepages if desired -->
+            <span class="author-block"><a href="#">Bipin Ghimire</a>,</span>
+            <span class="author-block"><a href="#">Aashish Pokhrel</a>,</span>
+            <span class="author-block"><a href="#">Prashanna Mani Paudel</a>,</span>
+            <span class="author-block"><a href="#">Shivanand Venkanna Sheshappanavar</a></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Geometric Intelligence Research Lab, Dept. of Electrical Engineering and Computer Science,<br>University of Wyoming</span>
+          </div>
+
+          <!-- TODO: set venue, e.g. "CVPR 2027" -->
+          <div class="is-size-5 publication-venue">Venue TBA</div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- TODO: replace each href="#" with the real link and remove class "is-disabled" -->
+              <span class="link-block">
+                <a href="#" class="button is-normal is-rounded is-dark is-disabled" target="_blank">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="button is-normal is-rounded is-dark is-disabled" target="_blank">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="button is-normal is-rounded is-dark is-disabled" target="_blank">
+                  <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="button is-normal is-rounded is-dark is-disabled" target="_blank">
+                  <span class="icon"><i class="fas fa-database"></i></span><span>Dataset</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#BibTeX" class="button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-quote-right"></i></span><span>BibTeX</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TEASER ==================== -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <img src="static/images/teaser.png" alt="EgoThermal example scenes with RGB, stereo depth and thermal" style="max-width:640px;">
+      <p class="figure-caption">
+        <b>Example scenes from EgoThermal:</b> a kitchen, a living room, a bathroom, and a fully dark scene, each with RGB, stereo depth, and radiometric thermal.
+        The kettle, the cup, and the water-filled tub look ordinary in RGB but are clearly hot in thermal. In darkness, RGB is black and stereo depth is nearly flat,
+        while thermal still shows the hot stove.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== STATS ==================== -->
+<section class="section" style="padding-top:0;">
+  <div class="container is-max-desktop">
+    <div class="columns is-mobile is-multiline is-centered">
+      <div class="column is-half-mobile is-one-fifth-tablet"><div class="stat-box"><div class="num">1,768</div><div class="lbl">indoor scenes</div></div></div>
+      <div class="column is-half-mobile is-one-fifth-tablet"><div class="stat-box"><div class="num">7,598</div><div class="lbl">annotated objects</div></div></div>
+      <div class="column is-half-mobile is-one-fifth-tablet"><div class="stat-box"><div class="num">65</div><div class="lbl">object classes</div></div></div>
+      <div class="column is-half-mobile is-one-fifth-tablet"><div class="stat-box"><div class="num">40,078</div><div class="lbl">QA pairs</div></div></div>
+      <div class="column is-half-mobile is-one-fifth-tablet"><div class="stat-box"><div class="num">11</div><div class="lbl">rooms</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABSTRACT ==================== -->
+<section class="section section-alt">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            For a blind or low-vision user, identifying whether a stove burner is hot may require approaching it closely enough to feel its heat.
+            RGB and depth support recognition and distance estimation, but neither measures surface temperature, and a hot burner can look like a cold one.
+            We introduce <b>EgoThermal</b>, an egocentric RGB-depth-thermal (RGB-D-T) dataset and benchmark captured with a head-mounted prototype,
+            containing 1,768 indoor scenes and 7,598 objects annotated with metric distance, apparent radiometric surface temperature, and, where applicable,
+            operational state, together with 40,078 rule-generated question-answer pairs.
+          </p>
+          <p>
+            We investigate how frozen vision-language models (VLMs) use object-associated physical measurements. Across six frozen VLMs, annotation-derived
+            distance and temperature text consistently outperform color-mapped sensor images, providing a controlled comparison of measurement interfaces.
+            In two Qwen models, printing annotation-derived values onto RGB images substantially improves accuracy, while measurements extracted from RGB
+            detector boxes achieve 69.8% and 77.9% accuracy, compared with 47.7% and 57.4% using color-mapped depth and thermal images.
+            For stove-burner ON/OFF labels assigned by annotators with access to thermal imagery, RGB achieves near-chance discrimination (AUROC 0.51),
+            while thermal reaches 0.83. Thermal also improves hazard localization at a 60&nbsp;&deg;C benchmark threshold.
+            Together, these results support assistive devices that associate sensor measurements with detected objects and provide those values directly
+            to language models.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PIPELINE ==================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Data Collection Pipeline</h2>
+        <div class="figure">
+          <img src="static/images/pipeline.png" alt="EgoThermal collection pipeline">
+          <p class="figure-caption">
+            <b>(1)</b> The head-mounted platform records left and right RGB (a, b) and radiometric thermal (c).
+            <b>(2)</b> On-device processing produces stereo depth (d), and offline registration aligns thermal measurements with the RGB frame (e).
+            <b>(3)</b> Objects are outlined on RGB (f; red: above 35&nbsp;&deg;C) and stored with scene metadata as a JSON record (g);
+            temperature and distance are measured from the arrays inside each outline.
+          </p>
+        </div>
+        <div class="content has-text-justified" style="margin-top:1.5rem;">
+          <p>
+            The prototype pairs a dual IMX219 stereo RGB module (60&nbsp;mm baseline) with a centrally mounted FLIR Lepton&nbsp;3.5 radiometric thermal camera
+            (160&times;120 at 8.7&nbsp;Hz). A Raspberry Pi&nbsp;5 performs acquisition, stereo rectification, and depth estimation on-device.
+            Captures span six kitchens plus five living rooms and bathrooms, including 163 fully dark scenes. Two kitchens are held out to test
+            generalization to unseen environments, and the remaining rooms evaluate environment shift.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BENCHMARK / RESULTS ==================== -->
+<section class="section section-alt">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Benchmark Highlights</h2>
+
+    <div class="columns is-vcentered" style="margin-top:1.5rem;">
+      <div class="column is-half">
+        <div class="figure">
+          <img src="static/images/burners.png" alt="ON/OFF stove burners in RGB and thermal">
+        </div>
+      </div>
+      <div class="column is-half">
+        <h3 class="title is-5">Thermal reveals operational state</h3>
+        <div class="content has-text-justified">
+          <p>
+            The four burners look alike in RGB, while thermal clearly separates the ON burner from the three OFF ones.
+            On stove burners, RGB is near chance (AUROC 0.51), while thermal reaches 0.83.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-top:2rem;">
+      <div class="column is-10">
+        <h3 class="title is-5 has-text-centered">Proximity-aware thermal hazard localization (unseen kitchens)</h3>
+        <table class="table is-fullwidth is-striped result-table">
+          <thead>
+            <tr><th>Input (Faster R-CNN)</th><th>Hazard AP<sub>50</sub> @ 35&nbsp;&deg;C</th><th>Hazard AP<sub>50</sub> @ 60&nbsp;&deg;C</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>RGB</td><td>0.695</td><td>0.542</td></tr>
+            <tr><td>RGB + thermal</td><td class="best">0.869</td><td class="best">0.884</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="columns is-centered" style="margin-top:1rem;">
+      <div class="column is-10">
+        <h3 class="title is-5 has-text-centered">How should VLMs receive physical measurements?</h3>
+        <div class="content has-text-justified">
+          <p>
+            Across six frozen VLMs, supplying object-associated distance and temperature as text consistently beats feeding color-mapped depth and
+            thermal images. For example, on questions requiring both distance and temperature, Qwen2.5-VL improves from 0.48 accuracy with rendered
+            images to 0.89 with explicit measurements. Readouts extracted from RGB detector boxes reach 69.8% / 77.9% overall accuracy for the two
+            Qwen models, versus 47.7% / 57.4% with color-mapped sensor images.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROTOTYPE ==================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Prototype Application</h2>
+        <div class="figure">
+          <img src="static/images/prototype.jpg" alt="Prototype application: RGB detections and thermal observations">
+          <p class="figure-caption">
+            RGB detections (left) and thermal observations (right) on the head-mounted prototype. The highlighted region reports an apparent
+            temperature of 58.1&nbsp;&deg;C and a stereo-derived distance of 0.60&nbsp;m, triggering a central hot-object warning.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BIBTEX ==================== -->
+<section class="section section-alt" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">BibTeX</h2>
+    <!-- TODO: update booktitle/year once the venue is confirmed -->
+    <pre><code>@inproceedings{ghimire2026egothermal,
+  title     = {EgoThermal: An Egocentric RGB-D-T Dataset and Benchmark for Physical Awareness in Wearable Assistive Device},
+  author    = {Ghimire, Bipin and Pokhrel, Aashish and Paudel, Prashanna Mani and Sheshappanavar, Shivanand Venkanna},
+  booktitle = {TBA},
+  year      = {2026}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Geometric Intelligence Research Lab &middot; University of Wyoming<br>
+        This page is adapted from the <a href="https://github.com/nerfies/nerfies.github.io" target="_blank">Nerfies</a> project page template,
+        licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
